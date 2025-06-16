@@ -32,7 +32,7 @@ const DetalleLibroScreen = () => {
       <View className="bg-white p-4 rounded shadow mb-6">
         <Image
           source={{ uri: libro.imagen }}
-          className="w-full h-60 rounded mb-4"
+          className="w-full h-80 rounded-xl mb-4"
           resizeMode="cover"
         />
         <Text className="text-2xl font-bold text-[#90A686] mb-2">{libro.titulo}</Text>

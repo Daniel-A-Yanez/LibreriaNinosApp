@@ -6,6 +6,7 @@ import DetalleLibroScreen from '../screens/DetalleLibroScreen';
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => (
+
   <Stack.Navigator
     screenOptions={{
       headerStyle: {

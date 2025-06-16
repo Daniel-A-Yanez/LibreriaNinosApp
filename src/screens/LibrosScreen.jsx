@@ -1,6 +1,7 @@
 // src/screens/LibrosScreen.jsx
 import React, { useEffect, useState } from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import * as Haptics from 'expo-haptics'; // 👈 Importar Haptics
 import LibroCard from "../components/LibroCard";
 
 const LibrosScreen = () => {
@@ -23,12 +24,16 @@ const LibrosScreen = () => {
       ? libros
       : libros.filter((libro) => libro.categoria === categoria);
 
+  const handleCategoriaPress = (cat) => {
+    Haptics.selectionAsync(); // 👈 Activa haptic feedback
+    setCategoria(cat);
+  };
+
   return (
     <ScrollView className="bg-[#F2F2F2] px-6 py-6">
       <Text className="text-3xl font-extrabold text-[#90A686] mb-6">
         Catálogo de Libros
       </Text>
-     
 
       <View className="flex-row flex-wrap gap-2 mb-6">
         {categorias.map((cat, idx) => {
@@ -36,7 +41,7 @@ const LibrosScreen = () => {
           return (
             <TouchableOpacity
               key={idx}
-              onPress={() => setCategoria(cat)}
+              onPress={() => handleCategoriaPress(cat)} // 👈 Usa la función con Haptics
               className={`px-4 py-2 rounded-full border ${
                 isSelected
                   ? "bg-[#90A686] border-[#90A686]"
