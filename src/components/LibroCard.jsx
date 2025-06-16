@@ -7,7 +7,7 @@ const LibroCard = ({ libro }) => {
   const navigation = useNavigation();
 
   return (
-    <View className="bg-white border rounded-lg p-4 mb-4 shadow-sm w-full max-w-xs">
+    <View className="bg-white border rounded-lg p-5 mb-4 shadow-sm w-full max-w-xs">
       <Image
         source={{ uri: libro.imagen }}
         className="w-full h-40 rounded mb-2"
