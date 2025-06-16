@@ -6,9 +6,26 @@ import DetalleLibroScreen from '../screens/DetalleLibroScreen';
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Libros" component={LibrosScreen} />
-    <Stack.Screen name="DetalleLibro" component={DetalleLibroScreen} options={{ title: 'Detalles del Libro' }} />
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#90A686',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+      contentStyle: {
+        backgroundColor: '#F2F2F2',
+      },
+    }}
+  >
+    <Stack.Screen name="Libros" component={LibrosScreen} options={{ title: 'Catálogo de Libros' }} />
+    <Stack.Screen
+      name="DetalleLibro"
+      component={DetalleLibroScreen}
+      options={{ title: 'Detalles del Libro' }}
+    />
   </Stack.Navigator>
 );
 
