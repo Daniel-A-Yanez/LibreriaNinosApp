@@ -1,9 +1,17 @@
-import React from 'react';
-import { View, Text, Image, FlatList, ActivityIndicator } from 'react-native';
+import React, { useLayoutEffect } from 'react';
+import { View, Text, Image, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
 import useAutores from '../hooks/useAutores';
+import * as Haptics from 'expo-haptics';
+import { useNavigation } from '@react-navigation/native';
 
 const AutoresScreen = () => {
   const { autoresData, loading, error } = useAutores();
+  const navigation = useNavigation();
+
+  const verAutor = (autor) => {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium); // Haptic mediano
+      navigation.navigate('DetalleAutor', { autor });
+    };
 
   if (loading) {
     return (
@@ -30,6 +38,14 @@ const AutoresScreen = () => {
       <Text>Número de libros: {item.numero_libros}</Text>
       <Text>País: {item.nacionalidad}</Text>
       <Text className="text-center">Biografía: {item.biografia}</Text>
+      <TouchableOpacity
+         onPress={() => verAutor(item)}
+         className="mt-4 bg-[#D9967E] py-2 rounded-xl"
+      >
+      <Text className="text-white text-center text-sm font-semibold">
+                Ver autor
+      </Text>
+      </TouchableOpacity>
     </View>
   );
 

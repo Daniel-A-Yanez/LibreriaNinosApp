@@ -1,8 +1,5 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from '../screens/HomeScreen';
-import LibrosScreen from '../screens/LibrosScreen';
-import DetalleLibroScreen from '../screens/DetalleLibroScreen';
 import DetalleAutor from '../screens/DetalleAutor';
 import AutoresScreen from '../screens/AutoresScreen';
 
@@ -24,11 +21,11 @@ const StackNavigator = () => (
       },
     }}
   >
-    <Stack.Screen name="Libros" component={LibrosScreen} options={{ title: 'Catálogo de Libros' }} />
+    <Stack.Screen name="AutoresScreen" component={AutoresScreen} options={{ title: 'Autores'}}/>
     <Stack.Screen
-      name="DetalleLibro"
-      component={DetalleLibroScreen}
-      options={{ title: 'Detalles del Libro' }}
+    name="DetalleAutor"
+    component={DetalleAutor}
+    options={{title: 'Detalle del Autor'}}
     />
   </Stack.Navigator>
 );
