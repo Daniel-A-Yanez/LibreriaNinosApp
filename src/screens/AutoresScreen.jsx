@@ -3,10 +3,21 @@ import { View, Text, Image, FlatList, ActivityIndicator, TouchableOpacity } from
 import useAutores from '../hooks/useAutores';
 import * as Haptics from 'expo-haptics';
 import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 const AutoresScreen = () => {
   const { autoresData, loading, error } = useAutores();
   const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => navigation.openDrawer()} style={{ marginLeft: 0 }}>
+          <Ionicons name="menu" size={24} color="white" />
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
 
   const verAutor = (autor) => {
       Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium); // Haptic mediano
@@ -32,17 +43,15 @@ const AutoresScreen = () => {
 
   const renderItem = ({ item }) => (
     <View className="bg-white p-4 mb-4 rounded-lg shadow items-center mx-4">
-      <Image source={{ uri: item.foto }} className="w-24 h-24 rounded-full mb-2" />
-      <Text className="text-xl font-bold">{item.nombre_autor}</Text>
-      <Text>Edad: {item.edad}</Text>
-      <Text>Número de libros: {item.numero_libros}</Text>
-      <Text>País: {item.nacionalidad}</Text>
-      <Text className="text-center">Biografía: {item.biografia}</Text>
+      <Image source={{ uri: item.foto }} className="w-32 h-32 rounded-full mb-2" />
+      <Text className="text-xl font-bold mb-2">{item.nombre_autor}</Text>
+      <Text className="mb-1 mt-1"><Text className="text-bold">País: </Text> {item.nacionalidad}</Text>
+      <Text>Número de libros: <Text className="text-bold">{item.numero_libros}</Text></Text>
       <TouchableOpacity
          onPress={() => verAutor(item)}
          className="mt-4 bg-[#D9967E] py-2 rounded-xl"
       >
-      <Text className="text-white text-center text-sm font-semibold">
+      <Text className="text-white text-center text-sm font-semibold px-4">
                 Ver autor
       </Text>
       </TouchableOpacity>

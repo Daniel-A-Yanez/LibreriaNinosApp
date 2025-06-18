@@ -24,7 +24,7 @@ const StackNavigator = () => (
       },
     }}
   >
-    <Stack.Screen name="Libros" component={LibrosScreen} options={{ title: 'Catálogo de Libros' }} />
+    <Stack.Screen name="LibrosScreen" component={LibrosScreen} options={{ title: 'Catálogo de Libros' }} />
     <Stack.Screen
       name="DetalleLibro"
       component={DetalleLibroScreen}

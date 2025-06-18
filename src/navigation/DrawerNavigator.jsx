@@ -6,6 +6,7 @@ import AutoresScreen from '../screens/AutoresScreen';
 import HomeScreen from '../screens/HomeScreen';
 import AutoresStack from './AutoresStack';
 import StackHome from './StackHome';
+import StackPerfil from './StackPerfil'
 
 const Drawer = createDrawerNavigator();
 
@@ -13,16 +14,17 @@ const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: '#90A686' },
+        headerShown: false,
+        headerStyle: { backgroundColor: '#DB6B39' },
         headerTintColor: '#fff',
         headerTitleStyle: { fontWeight: 'bold' },
-        drawerActiveTintColor: '#90A686',
+        drawerActiveTintColor: '#DB6B39',
       }}
     >
       <Drawer.Screen name="Inicio" component={StackHome} />
       <Drawer.Screen name="Catálogo" component={StackNavigator} />
       <Drawer.Screen name="Autores" component={AutoresStack} />
-      <Drawer.Screen name="Perfil" component={PerfilScreen} />
+      <Drawer.Screen name="Perfil" component={StackPerfil} />
     </Drawer.Navigator>
   );
 };

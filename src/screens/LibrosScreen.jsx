@@ -1,12 +1,25 @@
 // src/screens/LibrosScreen.jsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import * as Haptics from 'expo-haptics'; // 👈 Importar Haptics
 import LibroCard from "../components/LibroCard";
+import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 const LibrosScreen = () => {
-  const [libros, setLibros] = useState([]);
-  const [categoria, setCategoria] = useState("Todas");
+  const [libros, setLibros] = useState ([]);
+  const [categoria, setCategoria] = useState ("Todas");
+  const navigation = useNavigation();
+
+    useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <TouchableOpacity onPress={() => navigation.openDrawer()} style={{ marginLeft: 0 }}>
+          <Ionicons name="menu" size={24} color="white" />
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
 
   useEffect(() => {
     fetch("https://mock.apidog.com/m1/879682-861157-default/libros")

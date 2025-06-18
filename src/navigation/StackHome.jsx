@@ -25,6 +25,7 @@ const StackNavigator = () => (
     }}
   >
     <Stack.Screen name="Inicio" component={HomeScreen} options={{ title: 'Inicio' }} />
+    <Stack.Screen name="Libros" component={LibrosScreen} options={{ title: 'Catálogo Libros'}} />
     <Stack.Screen
       name="DetalleLibro"
       component={DetalleLibroScreen}

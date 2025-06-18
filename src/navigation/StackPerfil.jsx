@@ -1,8 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import DetalleAutor from '../screens/DetalleAutor';
-import AutoresScreen from '../screens/AutoresScreen';
-
+import PerfilScreen from '../screens/PerfilScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -23,12 +21,7 @@ const StackNavigator = () => (
       },
     }}
   >
-    <Stack.Screen name="AutoresScreen" component={AutoresScreen} options={{ title: 'Autores'}}/>
-    <Stack.Screen
-    name="DetalleAutor"
-    component={DetalleAutor}
-    options={{title: 'Detalle del Autor'}}
-    />
+    <Stack.Screen name="Perfil" component={PerfilScreen} options={{ title: 'Perfil'}}/>
   </Stack.Navigator>
 );
 

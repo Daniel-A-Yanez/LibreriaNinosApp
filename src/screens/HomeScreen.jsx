@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { Ionicons } from '@expo/vector-icons';
 import LecturaMagica from '../../assets/Lecturamagica.png';
 import img1 from '../../assets/libro1.png';
 import img2 from '../../assets/img2.png';
@@ -18,6 +18,16 @@ const HomeScreen = () => {
   const [libros, setLibros] = useState([]);
   const navigation = useNavigation();
   const images = [img1, img2, img3, img4, img5, img6, img7];
+  
+    useLayoutEffect(() => {
+      navigation.setOptions({
+        headerLeft: () => (
+          <TouchableOpacity onPress={() => navigation.openDrawer()} style={{ marginLeft: 0 }}>
+            <Ionicons name="menu" size={24} color="white" />
+          </TouchableOpacity>
+        ),
+      });
+    }, [navigation]);
 
   useEffect(() => {
     fetch('https://mock.apidog.com/m1/879682-861157-default/libros')
@@ -44,7 +54,7 @@ const HomeScreen = () => {
           </Text>
           <TouchableOpacity
             className="bg-[#D9967E] px-6 py-2 rounded-full shadow-lg"
-            onPress={() => navigation.navigate('Libros')}
+            onPress={() => navigation.navigate('Catálogo')}
           >
             <Text className="text-white font-semibold">Explora ahora</Text>
           </TouchableOpacity>
