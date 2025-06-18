@@ -1,9 +1,21 @@
-// App.js
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import BottomTabNavigator from './src/navigation/BottomTabNavigator';
 import { useFonts } from 'expo-font';
+import DrawerNavigator from './src/navigation/DrawerNavigator';
+import LoginRegisterScreen from './src/screens/LoginRegisterScreen';
+import { AuthProvider, AuthContext } from './src/context/AuthContext';
+
+function MainApp() {
+  const { user } = useContext(AuthContext);
+
+  return (
+    <NavigationContainer>
+      <StatusBar style="auto" />
+      {user ? <DrawerNavigator /> : <LoginRegisterScreen />}
+    </NavigationContainer>
+  );
+}
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -12,12 +24,11 @@ export default function App() {
     'Outfit-ExtraBold': require('./assets/fonts/Outfit-ExtraBold.ttf'),
   });
 
-  if (!fontsLoaded) return null; // espera a que se carguen las fuentes
+  if (!fontsLoaded) return null;
 
   return (
-    <NavigationContainer>
-      <StatusBar style="auto" />
-      <BottomTabNavigator />
-    </NavigationContainer>
+    <AuthProvider>
+      <MainApp />
+    </AuthProvider>
   );
 }
