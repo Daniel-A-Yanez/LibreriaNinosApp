@@ -5,6 +5,7 @@ import PerfilScreen from '../screens/PerfilScreen';
 import AutoresScreen from '../screens/AutoresScreen';
 import HomeScreen from '../screens/HomeScreen';
 import AutoresStack from './AutoresStack';
+import StackHome from './StackHome';
 
 const Drawer = createDrawerNavigator();
 
@@ -18,7 +19,7 @@ const DrawerNavigator = () => {
         drawerActiveTintColor: '#90A686',
       }}
     >
-      <Drawer.Screen name="Inicio" component={HomeScreen} />
+      <Drawer.Screen name="Inicio" component={StackHome} />
       <Drawer.Screen name="Catálogo" component={StackNavigator} />
       <Drawer.Screen name="Autores" component={AutoresStack} />
       <Drawer.Screen name="Perfil" component={PerfilScreen} />
