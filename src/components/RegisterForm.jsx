@@ -80,14 +80,14 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   label: {
-    color: '#FF4500',
+    color: '#D8967E',
     marginTop: 10,
     marginLeft: 10,
     fontWeight: 'bold',
   },
   input: {
     borderWidth: 1,
-    borderColor: '#FF4500',
+    borderColor: '#D8967E',
     borderRadius: 20,
     padding: 10,
     marginTop: 5,
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     color: '#222',
   },
   button: {
-    backgroundColor: '#FF4500',
+    backgroundColor: '#8FA785',
     borderRadius: 20,
     padding: 12,
     marginTop: 10,

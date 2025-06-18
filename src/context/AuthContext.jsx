@@ -7,11 +7,9 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const loadUser = async () => {
-      const storedUser = await AsyncStorage.getItem('user');
-      if (storedUser) setUser(JSON.parse(storedUser));
-    };
-    loadUser();
+
+    AsyncStorage.removeItem('user').then(() => setUser(null));
+
   }, []);
 
   const login = async (username, password) => {
