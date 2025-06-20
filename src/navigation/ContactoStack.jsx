@@ -1,14 +1,12 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import DetalleAutor from '../screens/DetalleAutor';
-import AutoresScreen from '../screens/AutoresScreen';
+import ContactoScreen from '../screens/ContactoScreen';
 
 const Stack = createNativeStackNavigator();
 
-const StackNavigator = () => (
-
+const ContactoStack = () => (
   <Stack.Navigator
-    screenOptions={{
+   screenOptions={{
       headerStyle: {
         backgroundColor: '#90A686',
       },
@@ -21,13 +19,8 @@ const StackNavigator = () => (
       },
     }}
   >
-    <Stack.Screen name="AutoresScreen" component={AutoresScreen} options={{ title: 'Autores'}}/>
-    <Stack.Screen
-    name="DetalleAutor"
-    component={DetalleAutor}
-    options={{title: 'Detalle del Autor'}}
-    />
+    <Stack.Screen name="Contacto" component={ContactoScreen} />
   </Stack.Navigator>
 );
 
-export default StackNavigator;
+export default ContactoStack;

@@ -5,6 +5,7 @@ import LibrosScreen from '../screens/LibrosScreen';
 import DetalleLibroScreen from '../screens/DetalleLibroScreen';
 import DetalleAutor from '../screens/DetalleAutor';
 import AutoresScreen from '../screens/AutoresScreen';
+import ContactoScreen from '../screens/ContactoScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,7 @@ const StackNavigator = () => (
       component={DetalleLibroScreen}
       options={{ title: 'Detalles del Libro' }}
     />
+      <Stack.Screen name="Contacto" component={ContactoScreen} options={{ title: 'Contacto' }} />
   </Stack.Navigator>
 );
 

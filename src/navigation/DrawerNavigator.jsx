@@ -7,7 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import AutoresStack from './AutoresStack';
 import StackHome from './StackHome';
 import StackPerfil from './StackPerfil'
-import ContactoScreen from '../screens/ContactoScreen';
+import ContactoStack from './ContactoStack';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,8 +25,7 @@ const DrawerNavigator = () => {
       <Drawer.Screen name="Inicio" component={StackHome} />
       <Drawer.Screen name="Catálogo" component={StackNavigator} />
       <Drawer.Screen name="Autores" component={AutoresStack} />
-      <Drawer.Screen name="Perfil" component={StackPerfil} />
-      <Drawer.Screen name="Contacto" component={ContactoScreen} />
+      <Drawer.Screen name="Contacto" component={ContactoStack} />
     </Drawer.Navigator>
   );
 };
